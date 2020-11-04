@@ -55,7 +55,7 @@ else
     [[ "$target_origin" == "[cancel]" || -z "$target_origin" ]] && exit
     target=$(echo "$target_origin" | grep -o '^[[:alpha:]|[:digit:]]*:[[:digit:]]*:' | sed 's/.$//g')
     if [[ "$action" == "kill" ]]; then
-        echo "$target" | sort -r | xargs -i tmux unlink-window -k -t {}
+        echo "$target" | sort -r | xargs tmux unlink-window -k -t
     elif [[ "$action" == "rename" ]]; then
         tmux command-prompt -I "rename-window -t $target "
     elif [[ "$action" == "swap" ]]; then
